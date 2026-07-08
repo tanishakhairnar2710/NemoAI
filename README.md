@@ -1,96 +1,168 @@
-# NemoAI
+# NemoAI - AI-Powered Learning Assistant
 
-NemoAI is an AI-powered learning assistant that turns uploaded documents into summaries, flashcards, quizzes, mnemonics, and learning analytics.
-
-## Features
-
-- Upload PDF or TXT documents
-- Generate automatic document summaries
-- Create AI-driven flashcards and quizzes
-- Produce mnemonic study aids for key terms
-- Track learning progress with analytics
-- Secure user authentication with JWT
-# 🧠 NemoAI
-
-> An AI-powered learning assistant that transforms study materials into interactive learning resources.
-
-NemoAI helps students learn smarter by converting uploaded documents into concise summaries, flashcards, quizzes, mnemonics, and learning analytics—all from a single platform.
+A production-ready AI-powered learning platform that transforms uploaded study materials into summaries, flashcards, quizzes, mnemonics, and learning analytics. Built with React, TypeScript, FastAPI, and SQLite.
 
 ---
 
-## ✨ Features
+# Table of Contents
 
-- 📄 Upload PDF and TXT documents
-- 🤖 AI-generated document summaries
-- 🧠 Smart flashcard generation
-- ❓ Automatic quiz creation
-- 💡 Mnemonic generation for better retention
-- 📊 Learning analytics dashboard
-- 🔐 Secure JWT Authentication
-- 📱 Responsive modern interface
+- Overview
+- Features
+- Tech Stack
+- Prerequisites
+- Installation
+- Running the Application
+- Project Structure
+- System Architecture
+- Application Workflow
+- Web Pages
+- API Endpoints
+- Deployment
+- Development
+- Testing
+- Security
+- Troubleshooting
+- Support
+- License
+- Author
 
 ---
 
-## 🖥️ Tech Stack
+# Overview
 
-### Frontend
+NemoAI is an AI-powered learning platform designed to help students learn more efficiently from digital study materials.
 
-- React
+Users can upload PDF or TXT documents and instantly generate AI-powered learning resources including:
+
+- Document Summaries
+- Flashcards
+- Quizzes
+- Mnemonics
+- Learning Analytics
+
+The application provides a clean dashboard where users can organize documents and monitor their learning progress.
+
+---
+
+# Features
+
+## Core Features
+
+### ✅ User Authentication
+
+- Secure user registration
+- Secure login
+- JWT Authentication
+- Password hashing
+
+---
+
+### ✅ Document Management
+
+- Upload PDF documents
+- Upload TXT documents
+- Store user documents
+- View uploaded documents
+- Delete uploaded documents
+
+---
+
+### ✅ AI Summary Generator
+
+- Automatic document summarization
+- Key point extraction
+- Quick revision notes
+
+---
+
+### ✅ Flashcard Generator
+
+- AI-generated flashcards
+- Question-answer learning format
+- Interactive revision
+
+---
+
+### ✅ Quiz Generator
+
+- Automatically generated quizzes
+- Multiple learning questions
+- Improve concept retention
+
+---
+
+### ✅ Mnemonic Generator
+
+- Memory-friendly mnemonics
+- Easy concept recall
+- AI-assisted learning aids
+
+---
+
+### ✅ Learning Analytics
+
+- Total uploaded documents
+- Learning activity
+- Generated resources
+- Progress overview
+
+---
+
+### ✅ Responsive User Interface
+
+- Mobile-friendly layout
+- Modern dashboard
+- Clean navigation
+- Responsive design
+
+---
+
+# Tech Stack
+
+## Frontend
+
+- React 19
 - TypeScript
 - Vite
 - Tailwind CSS
+- React Router DOM
+- Axios
 
-### Backend
+---
+
+## Backend
 
 - FastAPI
 - Python
 - SQLAlchemy
+- Pydantic
 - JWT Authentication
+- Passlib
 
-### Database
+---
+
+## Database
 
 - SQLite
 
-### AI
+---
 
-- Rule-based AI generation (LLM-ready architecture)
+## AI Services
+
+- Rule-Based AI Engine
+- LLM Ready Architecture
 
 ---
 
-## 📁 Project Structure
+## Deployment
 
-```text
-NemoAI
-│
-├── backend/
-│   ├── app/
-│   ├── database/
-│   ├── models/
-│   ├── routes/
-│   ├── services/
-│   ├── uploads/
-│   └── requirements.txt
-│
-├── src/
-│   ├── components/
-│   ├── pages/
-│   ├── services/
-│   ├── hooks/
-│   └── assets/
-│
-├── public/
-├── package.json
-├── README.md
-└── vite.config.ts
-```
+- Frontend: Vercel
+- Backend: Render
+- Database: SQLite (Upgradeable to PostgreSQL)
 
 ---
 
-# 🚀 Getting Started
-
-## Prerequisites
-
-Before running the project, install:
+# Prerequisites
 
 - Node.js 18+
 - Python 3.11+
@@ -98,27 +170,25 @@ Before running the project, install:
 
 ---
 
-# ⚙️ Installation
+# Installation
 
-## 1. Clone the Repository
+## Step 1: Clone Repository
 
 ```bash
-git clone https://github.com/<your-username>/NemoAI.git
+git clone https://github.com/<username>/NemoAI.git
 
 cd NemoAI
 ```
 
 ---
 
-## 2. Backend Setup
-
-Navigate to the backend directory
+## Step 2: Backend Setup
 
 ```bash
 cd backend
 ```
 
-Create a virtual environment
+Create virtual environment
 
 ### Windows
 
@@ -128,7 +198,7 @@ python -m venv .venv
 .venv\Scripts\activate
 ```
 
-### macOS / Linux
+### macOS/Linux
 
 ```bash
 python3 -m venv .venv
@@ -142,21 +212,9 @@ Install dependencies
 pip install -r requirements.txt
 ```
 
-Run the backend
-
-```bash
-python -m uvicorn app.main:app --reload
-```
-
-Backend will start at
-
-```
-http://127.0.0.1:8000
-```
-
 ---
 
-## 3. Frontend Setup
+## Step 3: Frontend Setup
 
 Open another terminal
 
@@ -164,19 +222,45 @@ Open another terminal
 cd NemoAI
 ```
 
-Install dependencies
+Install packages
 
 ```bash
 npm install
 ```
 
-Start development server
+---
+
+# Running the Application
+
+## Start Backend
+
+```bash
+cd backend
+
+python -m uvicorn app.main:app --reload
+```
+
+Backend URL
+
+```
+http://localhost:8000
+```
+
+API Documentation
+
+```
+http://localhost:8000/docs
+```
+
+---
+
+## Start Frontend
 
 ```bash
 npm run dev
 ```
 
-Frontend runs at
+Frontend URL
 
 ```
 http://localhost:5173
@@ -184,309 +268,312 @@ http://localhost:5173
 
 ---
 
-# 🔄 Application Workflow
+# Project Structure
 
-```text
-User
-   │
-   ▼
-Upload PDF / TXT
-   │
-   ▼
-Backend Processing
-   │
-   ▼
-AI Analysis
-   │
-   ├── Summary
-   ├── Flashcards
-   ├── Quiz
-   ├── Mnemonics
-   └── Analytics
-   │
-   ▼
-Results Displayed on Dashboard
+```
+NemoAI/
+│
+├── backend/
+│   ├── app/
+│   │   ├── api/
+│   │   ├── auth/
+│   │   ├── database/
+│   │   ├── models/
+│   │   ├── routes/
+│   │   ├── schemas/
+│   │   ├── services/
+│   │   └── main.py
+│   │
+│   ├── uploads/
+│   ├── tests/
+│   ├── requirements.txt
+│   └── .env.example
+│
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── context/
+│   ├── hooks/
+│   ├── layouts/
+│   ├── pages/
+│   ├── services/
+│   ├── utils/
+│   ├── App.tsx
+│   └── main.tsx
+│
+├── public/
+├── package.json
+├── vite.config.ts
+├── tsconfig.json
+├── tailwind.config.js
+└── README.md
 ```
 
 ---
 
-# 📚 API Endpoints
+# System Architecture
+
+```
+                   +----------------------+
+                   |   React Frontend     |
+                   +----------+-----------+
+                              |
+                       REST API Calls
+                              |
+                              ▼
+                 +-------------------------+
+                 |    FastAPI Backend      |
+                 +-----------+-------------+
+                             |
+       ------------------------------------------------
+       |              |              |                |
+       ▼              ▼              ▼                ▼
+ Authentication   Document      AI Processing    Analytics
+     (JWT)       Management        Engine        Dashboard
+       |              |              |                |
+       ------------------------------------------------
+                             |
+                             ▼
+                     SQLite Database
+```
+
+---
+
+# Application Workflow
+
+```
+User Registration / Login
+            │
+            ▼
+Upload PDF / TXT Document
+            │
+            ▼
+Document Processing
+            │
+            ▼
+AI Processing Engine
+            │
+            ├── Summary
+            ├── Flashcards
+            ├── Quiz
+            ├── Mnemonics
+            └── Analytics
+            │
+            ▼
+Interactive Learning Dashboard
+```
+
+---
+
+# Web Pages
+
+| Page | Description |
+|------|-------------|
+| Home | Landing Page |
+| Login | User Login |
+| Signup | User Registration |
+| Dashboard | User Dashboard |
+| Upload Document | Upload Study Material |
+| Documents | Uploaded Documents |
+| Summary | AI Summary |
+| Flashcards | Flashcard Learning |
+| Quiz | Quiz Generation |
+| Mnemonics | Memory Aids |
+| Analytics | Learning Analytics |
+| Profile | User Profile |
+
+**Total Pages:** **12**
+
+---
+
+# API Endpoints
 
 ## Authentication
 
-| Method | Endpoint | Description |
-|---------|----------|-------------|
-| POST | `/signup` | Register user |
-| POST | `/login` | User login |
+```
+POST    /signup
+POST    /login
+```
 
 ---
 
 ## Documents
 
-| Method | Endpoint | Description |
-|---------|----------|-------------|
-| POST | `/upload` | Upload document |
-| GET | `/documents` | List uploaded documents |
-| GET | `/documents/{id}/summary` | Document summary |
+```
+POST    /upload
+GET     /documents
+GET     /documents/{id}/summary
+DELETE  /documents/{id}
+```
 
 ---
 
-## Learning
+## AI Services
 
-| Method | Endpoint | Description |
-|---------|----------|-------------|
-| GET | `/flashcards/{id}` | Generate flashcards |
-| GET | `/quiz/{id}` | Generate quiz |
-| GET | `/mnemonics/{id}` | Generate mnemonics |
-| GET | `/analytics` | Learning analytics |
-
----
-
-# 📊 Core Features
-
-### 📄 AI Summary
-
-Generate concise summaries of uploaded documents.
+```
+GET     /flashcards/{document_id}
+GET     /quiz/{document_id}
+GET     /mnemonics/{document_id}
+GET     /analytics
+```
 
 ---
 
-### 🧠 Flashcards
+# Deployment
 
-Create revision flashcards automatically.
+## Backend (Render)
 
----
-
-### ❓ Quiz Generator
-
-Generate multiple-choice questions to test understanding.
-
----
-
-### 💡 Mnemonics
-
-Produce memory aids for important concepts.
-
----
-
-### 📈 Analytics
-
-Track learning progress and document activity.
-
----
-
-# 🧪 Testing
-
-Run backend tests
+- Create Render account
+- Connect GitHub repository
+- Create Web Service
+- Install dependencies
 
 ```bash
-cd backend
-
-pytest -q
+pip install -r requirements.txt
 ```
 
----
-
-# ⚙️ Configuration
-
-Current defaults
-
-- Upload directory: `backend/uploads`
-- Frontend Port: `5173`
-- Backend Port: `8000`
-- Database: SQLite
-- Authentication: JWT
-
----
-
-# 📸 Screenshots
-
-Add application screenshots here.
-
-```
-Home Page
-
-Dashboard
-
-Document Upload
-
-Summary View
-
-Flashcards
-
-Quiz
-
-Analytics
-```
-
----
-
-# 🚀 Future Improvements
-
-- OpenAI / Gemini integration
-- PDF annotations
-- OCR support
-- Voice-based learning
-- Spaced repetition algorithm
-- Document categorization
-- Cloud storage integration
-- Multi-language support
-- Dark mode
-- Mobile application
-
----
-
-# 🤝 Contributing
-
-Contributions are welcome.
-
-1. Fork the repository
-2. Create a feature branch
+Start command
 
 ```bash
-git checkout -b feature-name
+uvicorn app.main:app --host 0.0.0.0 --port $PORT
 ```
 
-3. Commit your changes
+Configure environment variables
+
+```
+DATABASE_URL
+SECRET_KEY
+ENVIRONMENT
+```
+
+---
+
+## Frontend (Vercel)
+
+- Create Vercel account
+- Import GitHub repository
+- Deploy
+
+Environment Variable
+
+```
+VITE_API_URL
+```
+
+---
+
+# Development
+
+## Code Standards
+
+- React Best Practices
+- TypeScript
+- FastAPI
+- Modular Architecture
+- Responsive Design
+
+---
+
+## Adding New Features
+
+```bash
+git checkout -b feature/feature-name
+```
+
+Commit
 
 ```bash
 git commit -m "Added feature"
 ```
 
-4. Push to GitHub
+Push
 
 ```bash
-git push origin feature-name
+git push origin feature/feature-name
 ```
 
-5. Open a Pull Request
+Create Pull Request.
 
 ---
 
-# 📝 License
+# Testing
 
-This project is licensed under the MIT License.
+Backend
+
+```bash
+cd backend
+
+pytest
+```
+
+Frontend
+
+```bash
+npm test
+```
 
 ---
 
-# 👨‍💻 Author
+# Security
 
-**Abhinav Tupe**
-
-- GitHub: https://github.com/AbhinavTupe
-- LinkedIn: https://linkedin.com/in/abhinav-tupe
+- JWT Authentication
+- Password Hashing
+- Protected API Routes
+- CORS Configuration
+- SQL Injection Prevention
+- Input Validation
+- Secure Password Storage
 
 ---
 
-## ⭐ Support
+# Troubleshooting
 
-If you found this project useful, consider giving it a ⭐ on GitHub.
-## Project Structure
+## Backend
 
-- `backend/` - FastAPI backend, database models, AI generation services, and API routes
-- `src/` - React + Vite frontend application
-- `uploads/` - Uploaded document storage during development
+### Import Errors
 
-## Prerequisites
-
-- Node.js 18+ / npm
-- Python 3.11+ (project currently uses Python 3.13-compatible packages)
-- Git
-
-## Backend Setup
-
-1. Create and activate a Python virtual environment:
-
-```powershell
-cd C:\Users\abhin\OneDrive\Desktop\NemoAI\backend
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
+```bash
+pip install -r requirements.txt
 ```
 
-2. Install backend dependencies:
+### Port Already in Use
 
-```powershell
-python -m pip install -r requirements.txt
+```bash
+python -m uvicorn app.main:app --reload --port 8001
 ```
 
-3. Run the backend server:
+---
 
-```powershell
-python -m uvicorn app.main:app --reload
-```
+## Frontend
 
-The backend API will run at `http://127.0.0.1:8000`.
+### Package Errors
 
-## Frontend Setup
-
-1. Open a second terminal at the project root:
-
-```powershell
-cd C:\Users\abhin\OneDrive\Desktop\NemoAI
-```
-
-2. Install frontend dependencies:
-
-```powershell
+```bash
 npm install
 ```
 
-3. Start the frontend development server:
+### Port Already in Use
 
-```powershell
-npm run dev
+```bash
+npm run dev -- --port 5174
 ```
 
-The frontend will run at `http://localhost:5173` by default.
+---
 
-## End-to-End Workflow
+# Support
 
-1. Start backend server first.
-2. Start frontend server.
-3. Open `http://localhost:5173`.
-4. Sign up or log in.
-5. Upload a PDF or TXT document.
-6. View generated document summary, flashcards, quizzes, mnemonics, and analytics.
+For bug reports, feature requests, or improvements, please create an issue in the GitHub repository.
 
-## API Endpoints
+---
 
-Primary backend routes:
+# License
 
-- `POST /signup` - register a new user
-- `POST /login` - authenticate and receive JWT
-- `POST /upload` - upload a document
-- `GET /documents` - list user documents
-- `GET /documents/{id}/summary` - document summary and keywords
-- `GET /flashcards/{document_id}` - flashcards for a document
-- `GET /quiz/{document_id}` - generated quiz questions
-- `GET /mnemonics/{document_id}` - mnemonic study aids
-- `GET /analytics` - learning analytics dashboard
+This project is released under the MIT License.
 
-## Testing
+---
 
-Run backend tests from the `backend/` folder:
+# Author
 
-```powershell
-cd C:\Users\abhin\OneDrive\Desktop\NemoAI\backend
-python -m pytest -q
-```
+**Tanisha Khairnar**
 
-## Notes
-
-- The project is configured to support `typescript@5.1.6` for compatibility with the current ESLint setup.
-- Uploaded files are saved to the `uploads/` folder by default.
-- CORS is enabled between the frontend dev server and backend API.
-
-## Troubleshooting
-
-- If `npm run dev` fails, ensure you are in the project root where `package.json` is located.
-- If backend import failures occur, confirm the Python virtual environment is active and dependencies are installed.
-
-## Future Improvements
-
-- Add production deployment configuration
-- Persist uploaded files in cloud storage
-- Improve AI generation quality with a real LLM backend
-- Add user settings and document categories
-#   N e m o A I 
- 
- 
+📧 Email: **khairnar.tanisha@gmail.com**
